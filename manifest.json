@@ -1,0 +1,41 @@
+{
+  "batch": {
+    "processes": [
+      {
+        "name": "zendeskdocuments",
+        "algorithmName": "main",
+        "namespace": "",
+        "algorithmTitle": {
+          "pt-br": "Zendesk Data",
+          "en-US": "Zendesk Data"
+        },
+        "algorithmDescription": {
+          "pt-br": "Zendesk Data",
+          "en-US": "Zendesk Data"
+        },
+        "instanceProperties": {
+          "profile": "",
+          "properties": {
+            "dockerImage": "zendeskdocuments/zendeskdocuments:1.0.0",
+            "flavor": "c1.medium"
+          },
+          "environments": {
+            "ENV": "PROD",
+            "LOCALSCHEDULER": "True"
+          }
+        }
+      }
+    ]
+  },
+  "docker": [
+    {
+      "dockerName": "zendeskdocuments",
+      "dockerTag": "1.0.0",
+      "gitBranch": "master",
+      "gitPath": "/",
+      "instanceType": "c1.medium",
+      "gitDockerfileName": "Dockerfile", 
+      "gitRepoUrl": "https://github.com/felipebmendes/batch-app-zendesk-documents.git"
+    }
+  ]
+}
