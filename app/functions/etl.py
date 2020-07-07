@@ -16,8 +16,8 @@ def normalize_articles(documents_df, sections_df, categories_df, body_column):
 
     # Merging Documents and Sections
     documents_df = documents_df.rename(columns={'name': 'article_name'})
-    documents_df = pd.merge(aux, sections_df[['name', 'category_id']], left_on='section_id', right_on='id', how='left')
-    documents_df = aux.rename(columns={'name': 'section_name'})
+    documents_df = pd.merge(documents_df, sections_df[['name', 'category_id']], left_on='section_id', right_on='id', how='left')
+    documents_df = documents_df.rename(columns={'name': 'section_name'})
 
     # Merging Documents and Categories
 
