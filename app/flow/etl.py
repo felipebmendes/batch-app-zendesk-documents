@@ -15,11 +15,12 @@ luigi.auto_namespace(scope=__name__)
     ingestion.IngestCategories
 )
 class DocumentsPreparation(Task):
+
     body_column = luigi.Parameter()
 
     def easy_run(self, inputs):
         documents_df, sections_df, categories_df = inputs
         out = normalize_articles(documents_df=documents_df, sections_df=sections_df,
-                                 categories_df=categories_df, body_column=body_column)
+                                 categories_df=categories_df, body_column=self.body_column)
         return out
 

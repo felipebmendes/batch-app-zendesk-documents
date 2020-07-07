@@ -16,7 +16,7 @@
         "instanceProperties": {
           "profile": "",
           "properties": {
-            "dockerImage": "zendeskdocuments/zendeskdocuments:1.0.0",
+            "dockerImage": "zendeskdata/zendeskdocuments:1.0.0",
             "flavor": "c1.medium"
           },
           "environments": {
