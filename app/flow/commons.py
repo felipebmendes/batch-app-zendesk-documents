@@ -33,11 +33,11 @@ entity_name_users = 'users'
 
 # Sections
 entity_sections = 'staging'
-entity_name_sections = 'articles'
+entity_name_sections = 'sections'
 
 # Categories
 entity_categories = 'staging'
-entity_name_categories = 'articles'
+entity_name_categories = 'categories'
 
 env_name = 'monitoriaqa'
 org_name = 'totvs'
