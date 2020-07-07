@@ -15,14 +15,16 @@ def normalize_articles(documents_df, sections_df, categories_df, body_column):
     logger.info(f'There are {documents_df.shape[0]} not empty documents.')
 
     # Merging Documents and Sections
-    documents_df = documents_df.rename(columns={'name': 'article_name'})
-    documents_df = pd.merge(documents_df, sections_df[['name', 'category_id']], left_on='section_id', right_on='id', how='left')
+    documents_df = documents_df.rename(columns={'name': 'article_name', 'id': 'article_id'})
+    documents_df = pd.merge(documents_df, sections_df[['id', 'name', 'category_id']], left_on='section_id', right_on='id', how='left')
+    documents_df = documents_df.drop(columns=['id'])
     documents_df = documents_df.rename(columns={'name': 'section_name'})
 
     # Merging Documents and Categories
 
-    documents_df = pd.merge(documents_df, categories_df[['name']], left_on='category_id', right_on='id', how='left')
-    documents_df = documents_df.rename(columns={'name': 'category_name'})
+    documents_df = pd.merge(documents_df, categories_df[['id', 'name']], left_on='category_id', right_on='id', how='left')
+    documents_df = documents_df.drop(columns=['id'])
+    documents_df = documents_df.rename(columns={'name': 'category_name', 'article_id': 'id'})
  
     # Normalizing Document's body
     documents_df['question'] = documents_df[body_column].apply(get_question)
