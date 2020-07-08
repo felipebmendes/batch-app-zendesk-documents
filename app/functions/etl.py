@@ -1,3 +1,4 @@
+import re
 import pandas as pd
 import numpy as np
 import logging
@@ -34,11 +35,11 @@ def normalize_articles(documents_df, sections_df, categories_df, body_column):
     documents_df['sanitized_solution'] = documents_df[body_column].apply(get_sanitized_solution)
 
     documents_df = documents_df.replace('', np.nan)
-    documents_df = documents_df.dropna(subset=['question', 'question_type', 'environment', 'solution'])
+    documents_df = documents_df.dropna()
     documents_df = documents_df.reset_index(drop=True)
 
-    for column in documents_df.colums:
-        if '_id' in column:
+    for column in documents_df.columns:
+        if column == id or '_id' in column:
             documents_df[column] = documents_df[column].apply(lambda x: x.replace('.0', ''))
 
     return documents_df
