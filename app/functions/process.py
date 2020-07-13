@@ -1,5 +1,5 @@
 import logging
-from pycarol import Carol, Staging, CDSStaging
+from pycarol import Carol, CDSStaging
 
 logger = logging.getLogger(__name__)
 
