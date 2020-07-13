@@ -39,14 +39,14 @@ def normalize_articles(documents_df, sections_df, categories_df, body_column):
 
     logger.info(f'There are {documents_df.shape[0]} documents after normalization.')
 
+    documents_df = documents_df.drop_duplicates(subset=['id'])
+    documents_df = documents_df.reset_index(drop=True)
+    logger.info(f'There are {documents_df.shape[0]} documents without duplicated ids.')
+
     for column in documents_df.columns:
         if column == 'id' or '_id' in column:
             documents_df[column] = documents_df[column].apply(lambda x: x.replace('.0', ''))
         documents_df[column] = documents_df[column].str.encode('utf-8')
-
-    documents_df = documents_df.drop_duplicates(subset=['id'])
-    documents_df = documents_df.reset_index(drop=True)
-    logger.info(f'There are {documents_df.shape[0]} documents without duplicated ids.')
 
     return documents_df
 
