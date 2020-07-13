@@ -39,8 +39,9 @@ def normalize_articles(documents_df, sections_df, categories_df, body_column):
     documents_df = documents_df.reset_index(drop=True)
 
     for column in documents_df.columns:
-        if column == id or '_id' in column:
+        if column == 'id' or '_id' in column:
             documents_df[column] = documents_df[column].apply(lambda x: x.replace('.0', ''))
+        documents_df[column] = documents_df[column].str.encode('utf-8')
 
     return documents_df
 

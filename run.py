@@ -5,13 +5,13 @@ load_dotenv('.env', override=True)
 import sys
 from time import time
 
-from app.flow import send, commons
+from app.flow import process, commons
 
 def get_tasks():
 
     task_list = [
-        send.SendDocuments(**commons.params),
-        send.SendUsers(**commons.params),
+        process.ProcessDocuments(**commons.params),
+        process.ProcessUsers(**commons.params),
     ]
 
     return task_list
