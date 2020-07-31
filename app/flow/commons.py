@@ -42,6 +42,11 @@ entity_name_categories = 'categories'
 env_name = 'monitoriaqa'
 org_name = 'totvs'
 
+named_query_name = 'get_documents'
+id_column_name = 'id'
+filter_column_name = 'section'
+url = 'https://lgpdassistant-searchlgpddocuments.apps.carol.ai/update_embeddings'
+
 #Results params
 
 #Documents
@@ -97,5 +102,10 @@ params = dict(
     
     staging_users = staging_users,
     connector_users = connector_users,
+
+    named_query_name = named_query_name,
+    id_column_name =  id_column_name,
+    filter_column_name = filter_column_name,
+    url = url
 
 )

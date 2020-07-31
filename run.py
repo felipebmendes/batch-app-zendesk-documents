@@ -5,12 +5,12 @@ load_dotenv('.env', override=True)
 import sys
 from time import time
 
-from app.flow import process, commons
+from app.flow import process, commons, update_embeddings
 
 def get_tasks():
 
     task_list = [
-        process.ProcessDocuments(**commons.params),
+        update_embeddings.UpdateEmbeddings(**commons.params),
         process.ProcessUsers(**commons.params),
     ]
 
