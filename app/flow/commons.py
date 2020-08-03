@@ -45,6 +45,7 @@ org_name = 'totvs'
 named_query_name = 'get_documents'
 id_column_name = 'id'
 filter_column_name = 'section'
+app_name = 'searchlgpddocuments'
 url = 'https://lgpdassistant-searchlgpddocuments.apps.carol.ai/update_embeddings'
 
 #Results params
@@ -106,6 +107,7 @@ params = dict(
     named_query_name = named_query_name,
     id_column_name =  id_column_name,
     filter_column_name = filter_column_name,
+    app_name=app_name,
     url = url
 
 )

@@ -1,4 +1,6 @@
 import logging
+import pandas as pd
+import pickle
 import requests
 from pycarol import Carol, Storage, Query
 from pycarol.data_models import DataModel
@@ -7,9 +9,10 @@ from sentence_transformers import SentenceTransformer
 logger = logging.getLogger(__name__)
 
 
-def update_embeddings(named_query_name, id_column_name, filter_column_name, url):
+def update_embeddings(named_query_name, id_column_name, filter_column_name, app_name, url):
 
     login = Carol()
+    login.app_name = app_name
 
     documents = Query(login).named(named_query=named_query_name).go().results
 

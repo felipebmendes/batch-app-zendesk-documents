@@ -17,6 +17,7 @@ class UpdateEmbeddings(Task):
     named_query_name = luigi.Parameter()
     id_column_name = luigi.Parameter()
     filter_column_name = luigi.Parameter()
+    app_name = luigi.Parameter()
     url = luigi.Parameter()
 
     def easy_run(self, inputs):
@@ -25,5 +26,6 @@ class UpdateEmbeddings(Task):
             named_query_name=self.named_query_name,
             id_column_name=self.id_column_name,
             filter_column_name=self.filter_column_name,
+            app_name=self.app_name,
             url=self.url
         )
