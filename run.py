@@ -11,7 +11,7 @@ def get_tasks():
 
     task_list = [
         update_embeddings.UpdateEmbeddings(**commons.params),
-        consolidate.ConsolidateUsers(**commons.params),
+        #consolidate.ConsolidateUsers(**commons.params),
     ]
 
     return task_list
